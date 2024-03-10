@@ -1,0 +1,13 @@
+This project is being created for Healthcare Information Systems
+Security Course at Capitol Technology University. The project will
+contain a env file containing environment variables, a read me with
+project description and execution instrutions, and a .py file to execute.
+The project will take a sample xlsx containing person healthcare information (fake)
+and implement three confidentiality and three integrity controls.
+
+For confidentiality, I will anonymize the data in the sample file, encrypt
+it using pycrypto, and contain the salt and passphrase for encryption within
+a evironment file.
+
+To maintain integrity, I have used a version controller (GitHub) to manage who
+has access to read and modify the data/code within this project.
