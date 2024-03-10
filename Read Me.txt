@@ -7,7 +7,9 @@ and implement three confidentiality and three integrity controls.
 
 For confidentiality, I will anonymize the data in the sample file, encrypt
 it using pycrypto, and contain the salt and passphrase for encryption within
-a evironment file.
+an evironment file.
 
 To maintain integrity, I have used a version controller (GitHub) to manage who
-has access to read and modify the data/code within this project.
+has access to read and modify the data/code within this project. Two factor
+authentication will also be used in combination with Google Authenticator to
+ensure only authorized individuals can execute the program.
