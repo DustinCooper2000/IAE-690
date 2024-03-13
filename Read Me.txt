@@ -7,9 +7,19 @@ and implement three confidentiality and three integrity controls.
 
 For confidentiality, I will anonymize the data in the sample file, encrypt
 it using pycrypto, and contain the salt and passphrase for encryption within
-an evironment file.
+an environment file. This will make it difficult to sniff the data through network
+traffic. The anonimization of data will also make it useless to individuals who are
+attempting to steal personal identifiable information. Containing the salt and
+passwords for encryption in an environment file is a software development
+best practice to prevent leaving sensitive information in plaintext for potential
+attackers.
 
 To maintain integrity, I have used a version controller (GitHub) to manage who
-has access to read and modify the data/code within this project. Two factor
+has access to read and modify the data/code within this project. Two-factor
 authentication will also be used in combination with Google Authenticator to
-ensure only authorized individuals can execute the program.
+ensure only authorized individuals can execute the program. The last integrity
+control will be input validation. When entering your code for TFA, I will ensure
+that users can only enter a code of proper length and type. This will prevent
+buffer overflow attacks from taking place. I may also implement a function to ask
+users for a specified file path where they would like the decrypted file to be sent.
+If this is implemented, input validation will also take place on that variable.
