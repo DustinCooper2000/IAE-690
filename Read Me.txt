@@ -6,7 +6,7 @@ The project will take a sample xlsx containing person healthcare information (fa
 and implement three confidentiality and three integrity controls.
 
 For confidentiality, I will anonymize the data in the sample file, encrypt
-it using pycrypto, and contain the salt and passphrase for encryption within
+it using pycrypto, and contain the passphrase for encryption within
 an environment file. This will make it difficult to sniff the data through network
 traffic. The anonimization of data will also make it useless to individuals who are
 attempting to steal personal identifiable information. Containing the salt and
