@@ -11,20 +11,25 @@ import pyotp
 def simulate_authentication(key):
    # Simulate the process of authenticating with a TOTP code.
    totp = pyotp.TOTP(key)
+   SuccessfulAttempt = False
    print("Enter the code from your Google Authenticator app to complete authentication.")
    user_input = input("Enter Code: ")
-   if totp.verify(user_input):
-       print("Authentication successful!")
-       df = pd.read_excel(r'./sample-data.xlsx', sheet_name="Sheet1")
-       df = df.astype(str)
-       dotenv.load_dotenv(r'./env.env')
-       SECRET_KEY = os.environ.get("Password")
-       crp.to_encrypted(df, SECRET_KEY, r'./test')
-       decrypted_df = crp.read_encrypted(r'./test', SECRET_KEY)
-       # print(decrypted_df)
-       print(SECRET_KEY)
-   else:
-       print("Authentication failed. Please try again with the right key.")
+   #if totp.verify(user_input):
+   print("Authentication successful!")
+   df = pd.read_excel(r'./sample-data.xlsx', sheet_name="Sheet1")
+   df = df.astype(str)
+   dotenv.load_dotenv(r'./env.env')
+   SECRET_KEY = os.environ.get("Password")
+   crp.to_encrypted(df, SECRET_KEY, r'./test')
+   while SuccessfulAttempt == False:
+    if totp.verify(user_input):
+        decrypted_df = crp.read_encrypted(r'./test', SECRET_KEY)
+        decrypted_df.to_excel('./Decryped_File.xlsx', 'PatientInfo')
+        # print(decrypted_df)
+        #print(SECRET_KEY)
+        SuccessfulAttempt = True
+    else:
+        print("Authentication failed. Please try again with the right key.")
 
 # Main Code
 # The key should be the same one generated and used to create the QR code in Program 1
