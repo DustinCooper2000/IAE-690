@@ -19,8 +19,8 @@ def simulate_authentication(key):
        df = df.astype(str)
        dotenv.load_dotenv(r'./env.env')
        SECRET_KEY = os.environ.get("Password")
-       crp.to_encrypted(df, "hello", r'./test')
-       decrypted_df = crp.read_encrypted(r'./test', "hello")
+       crp.to_encrypted(df, SECRET_KEY, r'./test')
+       decrypted_df = crp.read_encrypted(r'./test', SECRET_KEY)
        # print(decrypted_df)
        print(SECRET_KEY)
    else:

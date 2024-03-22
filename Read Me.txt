@@ -23,3 +23,22 @@ that users can only enter a code of proper length and type. This will prevent
 buffer overflow attacks from taking place. I may also implement a function to ask
 users for a specified file path where they would like the decrypted file to be sent.
 If this is implemented, input validation will also take place on that variable.
+
+Program Instructions
+
+This Python Program has been created in GitHub for ease of access. All files
+needed to run the program can be downloaded along with the code from this
+GitHub link:https://github.com/DustinCooper2000/IAE-690/tree/master. Once you
+have all the files on your local or virtual machine, run the "TFA.py" file.
+This will require you to download the "Google Authentication" app from your
+mobile app store. When you run the "TFA.py" file, it will ask for a user account
+name. Your user as the instructor is Momar. Captilization is important. You will
+have three attempts to login before the code exits with an error message. Attempts
+to input too many characters (6) will result in a failed login attempt. Upon
+successfully entering the user account name, a PNG file called totp_qr.png will
+be created within the same file as the python script. Open the PNG and scan the QR
+code using the Google Authenticator app. This will provide you with an authentication
+code that is needed to run the "Read Data.py" file. Notice that the code changes
+every 30 seconds. Please wait for the code to refresh before attempting to
+authenticate. This authentication protects the data from being read by anyone
+without the proper user account and authentication code.
