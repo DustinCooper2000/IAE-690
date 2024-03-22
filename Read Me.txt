@@ -41,4 +41,6 @@ code using the Google Authenticator app. This will provide you with an authentic
 code that is needed to run the "Read Data.py" file. Notice that the code changes
 every 30 seconds. Please wait for the code to refresh before attempting to
 authenticate. This authentication protects the data from being read by anyone
-without the proper user account and authentication code.
+without the proper user account and authentication code. Upon successful authentication
+an excel file will be written to this project folder called "Decrypted_File.xlsx".
+This excel file contains the contents we began with.
