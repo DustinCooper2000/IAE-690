@@ -19,19 +19,23 @@ def simulate_authentication(key):
    totp = pyotp.TOTP(key)
    SuccessfulAttempt = False
    print("Enter the code from your Google Authenticator app to complete authentication.")
-   user_input = input("Enter Code: ")
+   #user_input = input("Enter Code: ")
    #if totp.verify(user_input):
-   print("Authentication successful!")
+   #print("Authentication successful!")
    dotenv.load_dotenv(r'./env.env')
    SECRET_KEY = os.environ.get("Password")
    crp.to_encrypted(df, SECRET_KEY, r'./test')
    while SuccessfulAttempt == False:
+    user_input = input("Enter Code: ")
     if totp.verify(user_input):
         decrypted_df = crp.read_encrypted(r'./test', SECRET_KEY)
         decrypted_df.to_excel('./Decryped_File.xlsx', 'PatientInfo')
         # print(decrypted_df)
         #print(SECRET_KEY)
         SuccessfulAttempt = True
+        print("Authentication successful!")
+    elif len(user_input) > 6:
+        print("User input cannot be greater than 6 characters.")
     else:
         print("Authentication failed. Please try again with the right key.")
 
